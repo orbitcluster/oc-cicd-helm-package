@@ -33,11 +33,6 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: 0 # Needed for checking if on main? or just refs. Usually checkout is done by caller, but if here, good defaults.
-
     - name: Set up Helm
       uses: azure/setup-helm@v4.2.0
 
