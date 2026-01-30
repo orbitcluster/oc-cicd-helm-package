@@ -75,12 +75,12 @@ runs:
         path: ${{ inputs.path }}/${{ steps.package.outputs.chart-archive }}
         retention-days: 1
 
-    - name: Delete Old Package Versions
-      uses: actions/delete-package-versions@v5
-      continue-on-error: true # Package might not exist yet on first run
-      with:
-        package-name: "base-k8s-chart"
-        package-type: "container"
-        min-versions-to-keep: 5
-        delete-only-untagged-versions: "true"
-        token: ${{ inputs.github-token }}
+    # - name: Delete Old Package Versions
+    #   uses: actions/delete-package-versions@v5
+    #   continue-on-error: true # Package might not exist yet on first run
+    #   with:
+    #     package-name: "base-k8s-chart"
+    #     package-type: "container"
+    #     min-versions-to-keep: 5
+    #     delete-only-untagged-versions: "true"
+    #     token: ${{ inputs.github-token }}
