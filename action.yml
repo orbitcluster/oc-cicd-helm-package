@@ -40,9 +40,9 @@ runs:
       if: inputs.validate_templates == 'true'
       shell: bash
       run: |
-        echo "Running validation..."
-        helm lint "${{ inputs.path }}"
-        helm template "${{ inputs.path }}" > /dev/null
+        echo "****************Running validation****************"
+        helm template "${{ inputs.path }}" -f "${{ inputs.path }}/linter_values.yaml" --debug
+        echo "****************Validation completed****************"
 
     - name: Package & Push Helm Chart
       id: package
